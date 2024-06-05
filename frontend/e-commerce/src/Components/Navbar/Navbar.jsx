@@ -17,10 +17,10 @@ const [menu, setMenu] = useState("home")
         <p>Fantastic Grim</p>
       </div>
       <ul className="nav-menu">
-        <li onClick={()=>{setMenu("home")}}><Link to='/'>Home</Link> {menu==="home"?<hr />:<></>}</li>
-        <li onClick={()=>{setMenu("shop")}}><Link to='/shop'>Shop</Link> {menu==="shop"?<hr />:<></>}</li>
-        <li onClick={()=>{setMenu("about")}}><Link to='/about'>About</Link>{menu==="about"?<hr />:<></>}</li>
-        <li onClick={()=>{setMenu("cart")}}><Link to='/cart'>My Cart</Link>{menu==="cart"?<hr />:<></>}</li>
+        <li onClick={()=>{setMenu("home")}}><Link style={{ textDecoration: 'none'}} to='/'>Home</Link> {menu==="home"?<hr />:<></>}</li>
+        <li onClick={()=>{setMenu("shop")}}><Link style={{ textDecoration: 'none'}} to='/shop'>Shop</Link> {menu==="shop"?<hr />:<></>}</li>
+        <li onClick={()=>{setMenu("about")}}><Link style={{ textDecoration: 'none'}} to='/about'>About</Link>{menu==="about"?<hr />:<></>}</li>
+        <li onClick={()=>{setMenu("cart")}}><Link style={{ textDecoration: 'none'}} to='/cart'>My Cart</Link>{menu==="cart"?<hr />:<></>}</li>
       </ul>
       <div className="nav-login-cart">
         <Link to='/login'><button>Login</button></Link>

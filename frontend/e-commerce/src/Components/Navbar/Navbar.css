@@ -61,6 +61,7 @@
     font-weight: 500;
     background: white;
     cursor: pointer;
+   margin-left: 10px;
 }
 
 .nav-login-cart button:active {
