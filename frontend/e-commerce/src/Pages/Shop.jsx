@@ -8,7 +8,7 @@ import Newsletter from '../Components/Newsletter/Newsletter'
 const Shop = () => {
   return (
     <div>
-      
+      <Hero />
       <Popular />
       <Offer />
       <NewCollections />

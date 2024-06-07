@@ -10,6 +10,10 @@ import Product from './Pages/Product'
 import LoginSignup from './Pages/LoginSignup'
 import Hero from './Components/Hero/Hero'
 import Footer from './Components/Footer/Footer'
+import men_banner from './Components/assets/banner_mens.png'
+import women_banner from './Components/assets/banner_women.png'
+import kid_banner from './Components/assets/banner_kids.png'
+import ShopCategory from './Pages/ShopCategory'
 
 function App() {
 
@@ -19,11 +23,10 @@ function App() {
       <div>
         <BrowserRouter>
         <Navbar />
-        <Hero />
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/shop' element={<Shop/>}/>
-          <Route path='/about' element={<About/>}/>
+          <Route path='/about' element={<ShopCategory banner={men_banner} category='men'/>}/>
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/product' element={<Product/>}/>
           <Route path=':productId' element={<Product/>}/>
