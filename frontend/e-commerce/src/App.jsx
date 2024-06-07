@@ -9,6 +9,7 @@ import About from './Pages/About'
 import Product from './Pages/Product'
 import LoginSignup from './Pages/LoginSignup'
 import Hero from './Components/Hero/Hero'
+import Footer from './Components/Footer/Footer'
 
 function App() {
 
@@ -27,8 +28,8 @@ function App() {
           <Route path='/product' element={<Product/>}/>
           <Route path=':productId' element={<Product/>}/>
           <Route path='/login' element={<LoginSignup/>}/>
-        
         </Routes>
+        <Footer />
         </BrowserRouter>
         </div>
     </>
