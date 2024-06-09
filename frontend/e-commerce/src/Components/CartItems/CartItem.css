@@ -10,18 +10,24 @@
 
 .cartitems-format-main {
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr;
+    grid-template-columns: 0.5fr 2fr 1fr 0.5fr;
     align-items: center;
-    gap: 75px;
+    gap: 10px;
     padding: 20px 0px;
     color: #454545;
     font-size: 18px;
     font-weight: 600;
+    
+}
+
+.cartitems-format-main img {
+    margin: auto;
 }
 
 .cartitems-format {
     font-size: 17px;
     font-weight: 500;
+   
 }
 
 .carticon-product-icon{
@@ -73,37 +79,40 @@
 }
 
 .cartitems-promocode {
-    flex: 1;
+    margin-left: -200px;
+    margin-top: 20px;
     font-size: 16px;
     font-weight: 500;
 }
 
 .cartitems-promocode p {
     color: #555;
+    margin-bottom: 5px;
 }
 
 .cartitems-promobox {
     width: 504px;
     margin-top: 15px;
-    padding-left: 20px;
     height: 58px;
-    background: #eaeaea;
+    margin: auto;
+   
 }
 
-.cartiems-promobox input {
-    border: none;
+.cartitems-promobox input {
+    border: 1px solid black;
     outline: none;
     background: transparent;
     font-size: 16px;
-    width: 330px;
-    height: 50px;
+    width: 200px;
+    height: 47px;
 }
 
 .cartitems-promobox button {
-    width: 170px;
-    height: 58px;
+    width: 125px;
+    height: 50px;
     font-size: 16px;
-    background: black;
+    background: #454545;
     color: white;
     cursor: pointer;
+    margin-left: 3px;
 }

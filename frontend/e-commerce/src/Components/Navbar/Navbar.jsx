@@ -14,7 +14,7 @@ const {getTotalCartItems} = useContext(ShopContext)
   return (
     <div className='navbar'>
       <div className="nav-logo">
-        <img src={logo} alt="" />
+        <Link to='/'><img src={logo} alt="" /></Link>
         <p>Fantastic Grim</p>
       </div>
       <ul className="nav-menu">

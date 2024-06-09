@@ -1,7 +1,7 @@
 import React from 'react'
 import './Item.css'
 import { Link } from 'react-router-dom'
-import all_product from '../assets/all_product'
+
 
 const Item = (props) => {
   return (

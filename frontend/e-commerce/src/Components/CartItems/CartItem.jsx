@@ -13,8 +13,7 @@ const CartItem = () => {
         <p>Title</p>
         <p>Price</p>
         <p>Quantity</p>
-        <p>Total</p>
-        <p>Remove</p>
+       
       </div>
       <hr />
         {all_product.map((e)=> {  //Need to add keys here
@@ -36,7 +35,7 @@ const CartItem = () => {
         })}
         <div className="cartitems-down">
             <div className="cartitems-total">
-                <h1>Cart Totals</h1>
+                <h1>Order Total</h1>
                 <div>
                     <div className="cartitems-total-item">
                         <p>Subtotal</p>

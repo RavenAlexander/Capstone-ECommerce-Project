@@ -1,7 +1,7 @@
 import React from 'react'
 import './Breadcrumb.css'
 import arrow_icon from '../assets/breadcrum_arrow.png'
-import all_product from '../assets/all_product'
+
 
 const Breadcrumb = (props) => {
     const {product} = props;

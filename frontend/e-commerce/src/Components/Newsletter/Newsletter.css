@@ -1,6 +1,6 @@
 .newsletter {
     width: 65%;
-    height: 40vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,7 @@
     margin: auto;
     padding: 0px 140px;
     margin-bottom: 150px;
-    background-color: pink;
+    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
     gap: 30px;
 }
 
@@ -16,11 +16,14 @@
     color: #454545;
     font-size: 55px;
     font-weight: 600;
+  
+  
 }
 
 .newsletter p {
     color: #454545;
     font-size: 20px;
+   
 }
 
 .newsletter div {
@@ -32,6 +35,7 @@
     height: 70px;
     border-radius: 80px;
     border: 1px solid #e3e3e3;
+    
 }
 
 .newsletter input {
@@ -48,8 +52,9 @@
     width: 210px;
     height: 70px;
     border-radius: 80px;
-    background-color: black;
+    background-color: #454545;
     color: white;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
 }
