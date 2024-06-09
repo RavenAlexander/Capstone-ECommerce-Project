@@ -24,12 +24,13 @@ function App() {
         <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/shop' element={<Shop/>}/>
-          <Route path='/about' element={<ShopCategory banner={men_banner} category='men'/>}/>
+          <Route path='/' element={<Shop/>}/>
+          <Route path='/shop' element={<ShopCategory banner={men_banner} category='men'/>}/>
+          <Route path='/about' element={<About/>}/>
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/product' element={<Product/>}/>
+          <Route path='/product' element={<Product/>}>
           <Route path='/product/:productId' element={<Product/>}/>
+          </Route>
           <Route path='/login' element={<LoginSignup/>}/>
         </Routes>
         <Footer />

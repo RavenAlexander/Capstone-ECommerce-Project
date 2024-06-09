@@ -13,10 +13,8 @@ const Footer = () => {
         <p>Fantastic Grim</p>
       </div>
       <ul className="footer-links">
-        <li>Company</li>
-        <li>Products</li>
-        <li>Offices</li>
-        <li>About</li>
+        <li>Terms of Use</li>
+        <li>Privacy Policy</li>
         <li>Contact</li>
       </ul>
       <div className="footer-social-icon">
@@ -32,7 +30,7 @@ const Footer = () => {
       </div>
       <div className="footer-copyright">
         <hr />
-        <p>Copyright @ 2024</p>
+        <p>Copyright @ Raven Alexander 2024</p>
       </div>
     </div>
   )
