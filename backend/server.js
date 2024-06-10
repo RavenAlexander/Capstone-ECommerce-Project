@@ -1,4 +1,5 @@
 const port = 4000;
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -11,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 //MongoDB Database
-mongoose.connect('mongodb+srv://theravenalexander:84xuVwsBVG69DsMD@cluster0.49jijgj.mongodb.net/e-commerce');
+mongoose.connect(process.env.MONGO_URI);
 
 //API Creation
 
@@ -79,6 +80,12 @@ const Product = mongoose.model("Product",{
 
 app.post('/addproduct', async (req, res) => {
     let products = await Product.find({});
+    let id;
+    if(products.length>0) {
+        let last_product_array = products.slice(-1);
+        let last_product = last_product_array[0];
+    }
+
     const product = new Product({
         id: req.body.id,
         name: req.body.name,
@@ -96,6 +103,22 @@ app.post('/addproduct', async (req, res) => {
     })
 })
 
+//Creating API for Deleting Products
+app.post('/removeproduct', async (req, res) => {
+    await Product.findOneAndDelete({id: req.body.id});
+    console.log("Removed");
+    res.json({
+        success: true,
+        name: req.body.name
+    })
+})
+
+//Creating API for getting all products
+app.get('/allproducts', async (req, res)=> {
+    let products = await Product.find({});
+    console.log("All Products Fetched")
+    res.send(products);
+})
 
 
 app.listen(port,(error)=> {
