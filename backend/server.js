@@ -124,6 +124,79 @@ app.get('/allproducts', async (req, res)=> {
     res.send(products);
 })
 
+// Schema Creation for User - CREATE
+const Users = mongoose.model('Users', {
+    name: {
+        type: String,
+    },
+    email: {
+        type: String,
+        unique: true,
+    },
+    password: {
+        type: String,
+    },
+    cartData: {
+        type: Object,
+    },
+    date: {
+        type: Date,
+        default: Date.now,
+    }
+})
+
+//Creating Endpoint for registering the user
+
+app.post('/signup', async (req, res) => { 
+    let check = await Users.findOne({email: req.body.email}); // "Check" is middleware that checks to see if a user already exists
+    if (check) {
+        return res.status(400).json({success: false, errors: "Error: Existing user found with same email address."})
+    }
+    let cart = {}; // If there is no user, initialize new user with an empty cart
+    for (let i = 0; i < 300; i++) {
+        cart[i] = 0;
+    }
+
+    const user = new Users({
+        name: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        cartData: cart,
+    })
+
+    await user.save(); // Saves new user
+
+    const data = {
+        user: {
+            id: user.id
+        }
+    }
+
+    const token = jwt.sign(data, 'secret_ecom');
+    res.json({success: true, token}); // Uses json web token to save user registration data
+})
+
+//Creating Endpoint for User Login  - CREATE
+app.post('/login', async (req, res) => {
+    let user = await Users.findOne({email: req.body.email})
+    if (user) {
+        const passCompare = req.body.password === user.password; // Checks to see if passwords match
+        if (passCompare) {
+            const data = {
+                user: {
+                    id: user.id
+                }
+            }
+            const token = jwt.sign(data, 'secret_ecom');
+            res.json({success: true, token});
+        }
+        else {
+            res.json({success: false, error: "Password is incorrect."})
+        }
+    } else {
+        res.json({success: false, error: "Email address is incorrect."})
+    }
+})
 
 app.listen(port,(error)=> {
     if (!error) {
