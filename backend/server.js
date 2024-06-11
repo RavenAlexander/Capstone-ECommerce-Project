@@ -31,7 +31,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage:storage})
 
-//Creating Upload Endpoint for images
+//Creating Upload Endpoint for Images - CREATE
 app.use('/images', express.static('upload/images'))
 
 app.post('/upload', upload.single('product'), (req, res) => {
@@ -47,6 +47,7 @@ const Product = mongoose.model("Product",{
     id: {
         type: Number,
         required: true,
+        
     },
     name: {
         type: String,
@@ -76,18 +77,21 @@ const Product = mongoose.model("Product",{
         type: Boolean,
         default: true,
     }
-})
+});
 
-app.post('/addproduct', async (req, res) => {
+app.post('/addproduct', async (req, res) => { // - CREATE
     let products = await Product.find({});
     let id;
-    if(products.length>0) {
+    if(products.length > 0) { // This will take one product at a time and increment the ID number 
         let last_product_array = products.slice(-1);
         let last_product = last_product_array[0];
+        id = last_product.id + 1;
+    } else {
+        id = 1; // This adds an ID number if no ID is passed into the Product model
     }
 
     const product = new Product({
-        id: req.body.id,
+        id: id,
         name: req.body.name,
         image: req.body.image,
         category: req.body.category,
@@ -95,7 +99,7 @@ app.post('/addproduct', async (req, res) => {
         old_price: req.body.old_price,
     });
     console.log(product);
-    await product.save();
+    await product.save(); // This will save the entry to the database
     console.log("Saved");
     res.json({
         success: true,
@@ -103,7 +107,7 @@ app.post('/addproduct', async (req, res) => {
     })
 })
 
-//Creating API for Deleting Products
+//Creating API for Deleting Products - DELETE
 app.post('/removeproduct', async (req, res) => {
     await Product.findOneAndDelete({id: req.body.id});
     console.log("Removed");
@@ -113,7 +117,7 @@ app.post('/removeproduct', async (req, res) => {
     })
 })
 
-//Creating API for getting all products
+//Creating API for getting all products - READ
 app.get('/allproducts', async (req, res)=> {
     let products = await Product.find({});
     console.log("All Products Fetched")
