@@ -14,11 +14,16 @@ app.use(cors());
 //MongoDB Database
 mongoose.connect(process.env.MONGO_URI);
 
-//API Creation
 
 app.get('/', (req, res)=> {
     res.send("Express App is Running")
 })
+
+app.get('/product/:productId', (req, res) => {
+    //display product data 
+  
+})
+
 
 //IMAGE STORAGE ENGINE
 
@@ -79,7 +84,8 @@ const Product = mongoose.model("Product",{
     }
 });
 
-app.post('/addproduct', async (req, res) => { // - CREATE
+app.post('/addproduct', async (req, res) => { // - Create new product on Admin Side
+    
     let products = await Product.find({});
     let id;
     if(products.length > 0) { // This will take one product at a time and increment the ID number 
@@ -107,7 +113,7 @@ app.post('/addproduct', async (req, res) => { // - CREATE
     })
 })
 
-//Creating API for Deleting Products - DELETE
+//API route for Deleting Products - DELETE
 app.post('/removeproduct', async (req, res) => {
     await Product.findOneAndDelete({id: req.body.id});
     console.log("Removed");
@@ -117,14 +123,14 @@ app.post('/removeproduct', async (req, res) => {
     })
 })
 
-//Creating API for getting all products - READ
+//API route for getting all products - READ
 app.get('/allproducts', async (req, res)=> {
     let products = await Product.find({});
     console.log("All Products Fetched")
     res.send(products);
 })
 
-// Schema Creation for User - CREATE
+// Schema Creation for User 
 const Users = mongoose.model('Users', {
     name: {
         type: String,
@@ -145,12 +151,12 @@ const Users = mongoose.model('Users', {
     }
 })
 
-//Creating Endpoint for registering the user
+//Creating Endpoint for User Registration
 
 app.post('/signup', async (req, res) => { 
-    let check = await Users.findOne({email: req.body.email}); // "Check" is middleware that checks to see if a user already exists
+    let check = await Users.findOne({email: req.body.email}); // checks to see if a user already exists
     if (check) {
-        return res.status(400).json({success: false, errors: "Error: Existing user found with same email address."})
+        return res.status(400).json({success: false, error: "Error: Existing user found with same email address."})
     }
     let cart = {}; // If there is no user, initialize new user with an empty cart
     for (let i = 0; i < 300; i++) {
@@ -176,7 +182,7 @@ app.post('/signup', async (req, res) => {
     res.json({success: true, token}); // Uses json web token to save user registration data
 })
 
-//Creating Endpoint for User Login  - CREATE
+// User Login  - CREATE
 app.post('/login', async (req, res) => {
     let user = await Users.findOne({email: req.body.email})
     if (user) {
@@ -197,6 +203,65 @@ app.post('/login', async (req, res) => {
         res.json({success: false, error: "Email address is incorrect."})
     }
 })
+
+//New Collections Data - READ
+app.get('/newcollections', async (req, res) => {
+    let products = await Product.find({});
+    let newcollection = products.slice(1).slice(-8); // This will add the 8 newest products to the page
+    console.log("New Collection Fetched");
+    res.send(newcollection);
+})
+
+// Fetch Popular Section Data - READ
+app.get('/popularinwomen', async (req, res) => {
+    let products = await Product.find({category: "women"});
+    let popular_in_women = products.slice(0, 4); // Adds 4 products from the array to the page
+    console.log("Popular in women Fetched");
+    res.send(popular_in_women);
+})
+
+//Middleware to Fetch User
+const fetchUser = async (req, res, next) => {
+    const token = req.header('auth-token');
+        try {
+            const data = jwt.verify(token, 'secret_ecom');
+            req.user = data.user;
+            next();
+        } catch (error) {
+            res.status(401).send({error: "Please authenticate using a valid token."})
+        }
+    }
+
+
+//Endpoint for Adding Products to Cart Data - CREATE / UPDATE
+app.put('/addtocart', fetchUser, async (req, res) => {
+    console.log("added item id: ", req.body.itemId);
+    let userData = await Users.findOne({_id: req.user.id});
+    userData.cartData[req.body.itemId] += 1;
+    await Users.findOneAndUpdate({_id:req.user.id}, {cartData: userData.cartData});
+ 
+})
+
+//Remove Product from Cart Data - DELETE
+app.delete('/removefromcart', fetchUser, async (req, res) => {
+    console.log("removed item id: ", req.body.itemId);
+    let userData = await Users.findOne({_id: req.user.id});
+    if(userData.cartData[req.body.itemId] > 0)
+    userData.cartData[req.body.itemId] -= 1;
+    await Users.findOneAndUpdate({_id:req.user.id}, {cartData: userData.cartData});
+   
+})
+
+//Endpoint to Get Saved Cart Data - READ
+app.post('/getcart', fetchUser, async (req, res) => {
+    console.log("GetCart");
+    let userData = await Users.findOne({_id: req.user.id})
+    res.json(userData.cartData);
+})
+
+
+
+
 
 app.listen(port,(error)=> {
     if (!error) {

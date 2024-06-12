@@ -4,12 +4,13 @@ import upload_area from '../../assets/upload_area.svg'
 
 const AddProduct = () => {
 
+
     const [image, setImage] = useState(false);  // Note: Starts as false until an image is uploaded
     const [productDetails, setProductDetails] = useState({
         
         name: "",
         image: "",
-        category: "women",
+        category: "",
         new_price: "",
         old_price: ""
     });
@@ -21,6 +22,7 @@ const AddProduct = () => {
     const changeHandler = (e) => {
         setProductDetails({...productDetails,[e.target.name]:e.target.value})
     }
+
 
     const Add_Product = async () => { // This is what allows us to add a new product and save to our MongoDB database
         console.log(productDetails);
@@ -68,13 +70,14 @@ const AddProduct = () => {
     </div>
     <div className="addproduct-price">
         <div className="addproduct-itemfield">
-            <p>Offer Price</p>
+            <p>Offer (New) Price</p>
             <input value={productDetails.new_price} onChange={changeHandler} name='new_price' placeholder='Type here' />
         </div>
     </div>
     <div className="addproduct-itemfield">
         <p>Product Category</p>
-        <select value={productDetails.category} onChange={changeHandler} className='add-product-selector'>
+        <select name='category' value={productDetails.category} onChange={changeHandler} className='add-product-selector'>
+        <option value="">Choose:</option>
         <option value="women">Women</option>
         <option value="men">Men</option>
         <option value="kids">Kids</option>

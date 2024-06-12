@@ -10,11 +10,13 @@ const Footer = () => {
     <div className='footer'>
       <div className="footer-logo">
         <img src={footer_logo} alt='' />
-        <p>Fantastic Grim</p>
+        <p>Shopper</p>
       </div>
       <ul className="footer-links">
-        <li>Terms of Use</li>
-        <li>Privacy Policy</li>
+        <li>Company</li>
+        <li>Products</li>
+        <li>Offices</li>
+        <li>About</li>
         <li>Contact</li>
       </ul>
       <div className="footer-social-icon">
@@ -30,7 +32,7 @@ const Footer = () => {
       </div>
       <div className="footer-copyright">
         <hr />
-        <p>Copyright @ Raven Alexander 2024</p>
+        <p>Copyright @ 2024</p>
       </div>
     </div>
   )
