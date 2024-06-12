@@ -39,7 +39,7 @@ const ProductDisplay = (props) => {
                 ${product?.new_price}
             </div>
             <div className="productdisplay-right-description">
-                Description goes here 
+            Versatile for both professional and casual looks
             </div>
             <div className="productdisplay-right-size">
                 <h1>Select Size</h1>
@@ -53,7 +53,7 @@ const ProductDisplay = (props) => {
             </div>
             <button onClick={()=>{addtoCart(product?.id)}}>ADD TO CART</button>
             <p className="productdisplay-right-category">
-                <span>Category: </span> Women, T-Shirt, Crop Top
+                <span>Category: </span> T-Shirt, Crop Top
             </p>
             <p className="productdisplay-right-category">
                 <span>Tags: </span> Modern, Latest

@@ -66,6 +66,11 @@
         font-size: 40px;
        margin-bottom: 0px;
     }
+    .offers-left h2 {
+        font-size: 60px;
+       margin-bottom: 0px;
+       color:#ff4141;
+    }
     .offers-left p {
         font-size: 40px;
         margin-bottom: 0px;
@@ -99,6 +104,11 @@
         margin-top: 0px;
        
     }
+    .offers-left h2 {
+        font-size: 40px;
+       margin-bottom: 0px;
+       color:#ff4141;
+    }
     .offers-left p {
         font-size: 16px;
        
@@ -124,6 +134,11 @@
     }
     .offers-left h1 {
         font-size: 22px;
+    }
+    .offers-left h2 {
+        font-size: 30px;
+       margin-bottom: 0px;
+       color:#ff4141;
     }
     .offers-left p {
         font-size: 13px;
@@ -153,6 +168,11 @@
     }
     .offers-left p {
         font-size: 10px;
+    }
+    .offers-left h2 {
+        font-size: 20px;
+       margin-bottom: 0px;
+       color:#ff4141;
     }
     .offers-right img {
         width: 120px;
