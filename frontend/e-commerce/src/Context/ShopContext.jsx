@@ -1,22 +1,36 @@
 import React, {createContext, useState} from 'react'
-import all_product from '../Components/assets/all_product'
+import all_product from '../Components/assets/all_product' // This is sample data
+import { useEffect } from 'react';
 
 export const ShopContext = createContext(null);
 
-const getDefaultCart = ()=> {
+const getDefaultCart = ()=> { // You can have a max of 300 cart items
     let cart = {};
-    for (let index = 0; index < all_product.length+1; index++) {
+    for (let index = 0; index < 300+1; index++) {
         cart[index] = 0;
     } return cart;
 }
 
-const ShopContextProvider = (props) => {
+// const getDefaultCart = ()=> {
+//     let cart = {};
+//     for (let index = 0; index < all_product.length+1; index++) {
+//         cart[index] = 0;
+//     } return cart;
+// }
 
+const ShopContextProvider = (props) => {
+    const [all_product, setAll_Product] = useState([]);
     const [cartItems, setCartItems] = useState(getDefaultCart());
+
+    useEffect(() => { // This pulls from the backend database
+        fetch('http://localhost:4000/allproducts')
+        .then((response) => response.json())
+        .then((data) => setAll_Product(data))
+    }, [])
     
     const addtoCart = (itemId) => {
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
-        console.log(cartItems);
+        // console.log(cartItems); - for testing
     }
     
     const removeFromCart = (itemId) => {
