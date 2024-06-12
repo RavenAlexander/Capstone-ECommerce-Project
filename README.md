@@ -1,1 +1,4 @@
-# FG-Capstone-Project
+## Capstone-Project
+
+# StyleStation E-Commerce Website
+

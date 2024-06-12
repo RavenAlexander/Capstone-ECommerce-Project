@@ -15,15 +15,10 @@ app.use(cors());
 mongoose.connect(process.env.MONGO_URI);
 
 
+
 app.get('/', (req, res)=> {
     res.send("Express App is Running")
 })
-
-app.get('/product/:productId', (req, res) => {
-    //display product data 
-  
-})
-
 
 //IMAGE STORAGE ENGINE
 
@@ -83,6 +78,7 @@ const Product = mongoose.model("Product",{
         default: true,
     }
 });
+
 
 app.post('/addproduct', async (req, res) => { // - Create new product on Admin Side
     
