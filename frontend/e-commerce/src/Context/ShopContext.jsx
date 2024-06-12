@@ -31,7 +31,7 @@ const ShopContextProvider = (props) => {
     const addtoCart = (itemId) => {
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         // console.log(cartItems); - for testing
-        if(localStorage.getItem('auth-token')) {
+        if(localStorage.getItem('auth-token')) { //if the user is logged in, the rest will happen
             fetch('http://localhost:4000/addtocart', {
                 method: 'POST',
                 headers: {
