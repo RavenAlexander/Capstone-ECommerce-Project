@@ -33,7 +33,7 @@ const upload = multer({storage:storage})
 app.use('/images', express.static('upload/images'))
 
 app.post('/upload', upload.single('product'), (req, res) => {
-    res.json({
+    res.status(200).json({
         success: 1,
         image_url:`http://localhost:${port}/images/${req.file.filename}`
     })
@@ -100,7 +100,7 @@ app.post('/addproduct', async (req, res) => {
     console.log(product);
     await product.save(); // This will save the entry to the database
     console.log("Saved");
-    res.json({
+    res.status(200).json({
         success: true,
         name: req.body.name,
     })
@@ -110,7 +110,7 @@ app.post('/addproduct', async (req, res) => {
 app.post('/removeproduct', async (req, res) => {
     await Product.findOneAndDelete({id: req.body.id});
     console.log("Removed");
-    res.json({
+    res.status(200).json({
         success: true,
         name: req.body.name
     })
@@ -171,7 +171,7 @@ app.post('/signup', async (req, res) => {
     }
 
     const token = jwt.sign(data, 'secret_ecom');
-    res.json({success: true, token}); // Uses json web token to save user registration data
+    res.status(200).json({success: true, token}); // Uses json web token to save user registration data
 })
 
 // User Login  - CREATE
@@ -186,13 +186,13 @@ app.post('/login', async (req, res) => {
                 }
             }
             const token = jwt.sign(data, 'secret_ecom');
-            res.json({success: true, token});
+            res.status(200).json({success: true, token});
         }
         else {
-            res.json({success: false, error: "Password is incorrect."})
+            res.status(400).json({success: false, error: "Password is incorrect."})
         }
     } else {
-        res.json({success: false, error: "Email address is incorrect."})
+        res.status(400).json({success: false, error: "Email address is incorrect."})
     }
 })
 
@@ -248,7 +248,7 @@ app.delete('/removefromcart', fetchUser, async (req, res) => {
 app.post('/getcart', fetchUser, async (req, res) => {
     console.log("GetCart");
     let userData = await Users.findOne({_id: req.user.id})
-    res.json(userData.cartData);
+    res.status(200).json(userData.cartData);
 })
 
 
