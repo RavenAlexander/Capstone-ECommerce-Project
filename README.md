@@ -33,29 +33,30 @@ I also created a separate Admin panel where the user can upload their own produc
 
 ### Dependencies
 In order to run both the frontend and backend successfully, these dependencies must be installed using `npm install`:
-    "react": "^18.3.1",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.1",
-    "multer": "^1.4.5-lts.1",
-    "path": "^0.12.7"
+* "react"
+* "react-dom"
+* "react-router-dom"
+* "cors"
+* "dotenv"
+* "express"
+* "jsonwebtoken"
+* "mongoose"
+* "multer"
+* "path"
 
 I used Vite to create the React environment. To use Vite you must run the command:
 `$ npm create vite@latest`
 
-and then `npm run dev` in your chosen directory.
+and then `$ npm run dev` in your chosen directory.
 
 
 ## Overall Reflection
 I made a project that meets all of the specified requirements. Although not included in the code, the appropriate index used for my database is '_id' which is already set up by default.  I did not see a need to create a code for this as it felt redundant. I wanted to adhere to DRY coding principles and prevent redundancy.
 
-This was a complex project that used multiple React hooks such as UseRef, UseState, UseContext, useEffect and many JSX Components. I learned a lot about how to write conditional shortcuts in React such as the '?' operator to determine whether the value of an object is truthy or falsy. By using this operator, it helped me to avoid any of my code values returning "undefined" because React does not allow that.
+This was a complex project that used multiple React hooks such as UseRef, UseState, UseContext, useEffect and many JSX Components. I learned a lot about how to write optional chaining in React using the '?.' operator to determine whether the value of an object is truthy or falsy. By using this operator, it helped me to avoid any of my code values returning "undefined" React errors.
 
 I added creative elements and a personal touch to my project through the use of CSS styling. I love using CSS and enjoyed the opportunity to use both grid and flex displays interchangeably. I believe I delivered an engaging experience to the end-user, by giving the opportunity to browse through multiple shop categories as if it were an actual clothing shop.
+
 
 ### Challenges / Blockers
 This project was very interesting and I felt challenged at times when dealing with mapping products and applying the appropriate React keys. Eventually I got it figured out, though. The code works as intended.
