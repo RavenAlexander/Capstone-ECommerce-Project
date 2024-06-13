@@ -15,7 +15,6 @@ app.use(cors());
 mongoose.connect(process.env.MONGO_URI);
 
 
-
 app.get('/', (req, res)=> {
     res.send("Express App is Running")
 })
