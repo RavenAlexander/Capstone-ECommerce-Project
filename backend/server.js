@@ -20,7 +20,6 @@ app.get('/', (req, res)=> {
 })
 
 //IMAGE STORAGE ENGINE
-
 const storage = multer.diskStorage({
     destination: './upload/images',
     filename:(req, file, cb) => {
@@ -30,7 +29,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage:storage})
 
-//Creating Upload Endpoint for Images - CREATE
+//Upload Request Endpoint for Images - CREATE
 app.use('/images', express.static('upload/images'))
 
 app.post('/upload', upload.single('product'), (req, res) => {
@@ -41,7 +40,6 @@ app.post('/upload', upload.single('product'), (req, res) => {
 })
 
 //Schema for Creating Products
-
 const Product = mongoose.model("Product",{
     id: {
         type: Number,
@@ -78,8 +76,8 @@ const Product = mongoose.model("Product",{
     }
 });
 
-
-app.post('/addproduct', async (req, res) => { // - Create new product on Admin Side
+// Create new database product on Admin Side - CREATE
+app.post('/addproduct', async (req, res) => { 
     
     let products = await Product.find({});
     let id;
@@ -108,7 +106,7 @@ app.post('/addproduct', async (req, res) => { // - Create new product on Admin S
     })
 })
 
-//API route for Deleting Products - DELETE
+//API route for Deleting Products on Admin Side - DELETE
 app.post('/removeproduct', async (req, res) => {
     await Product.findOneAndDelete({id: req.body.id});
     console.log("Removed");
@@ -146,8 +144,8 @@ const Users = mongoose.model('Users', {
     }
 })
 
-//Creating Endpoint for User Registration
 
+//Endpoint for User Registration - CREATE
 app.post('/signup', async (req, res) => { 
     let check = await Users.findOne({email: req.body.email}); // checks to see if a user already exists
     if (check) {
@@ -166,7 +164,6 @@ app.post('/signup', async (req, res) => {
     })
 
     await user.save(); // Saves new user
-
     const data = {
         user: {
             id: user.id
@@ -228,7 +225,7 @@ const fetchUser = async (req, res, next) => {
     }
 
 
-//Endpoint for Adding Products to Cart Data - CREATE / UPDATE
+//Endpoint for Adding Products to Cart Data - UPDATE
 app.put('/addtocart', fetchUser, async (req, res) => {
     console.log("added item id: ", req.body.itemId);
     let userData = await Users.findOne({_id: req.user.id});
