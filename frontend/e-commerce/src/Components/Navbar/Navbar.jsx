@@ -22,7 +22,7 @@ const dropdown_toggle = (e) => {
     <div className='navbar'>
       <div className="nav-logo">
         <Link to='/'><img src={logo} alt="" /></Link>
-        <p>StyleStation</p>
+        <p className='dancing-script-logo'>StyleStation</p>
       </div>
       <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dropdown} alt="" />
       <ul ref={menuRef} className="nav-menu">

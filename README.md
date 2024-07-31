@@ -2,9 +2,7 @@
 
 # StyleStation E-Commerce Website
 
-Live (deployed) website here: https://capstone-ecommerce-project.onrender.com
-
-Backend site: https://capstone-ecommerce-project-arq1.onrender.com
+Live (deployed) website here: https://e-commerce-react-website.onrender.com
 
 StyleStation is a clothing shop that sells products for men, women and kids. I used the MERN (MongoDB, Express, React, NodeJS) Stack to create this full-stack web application. It includes user authentication, and the ability to save your cart contents within your personal account. That way, you can pick up where you left off in your browsing!
 

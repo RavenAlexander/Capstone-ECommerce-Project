@@ -319,6 +319,10 @@
         height: 330px;
     }
 
+    .productdisplay-main-img img {
+        height: 330px;
+    }
+
     .productdisplay-right {
        margin: 5px;
     }

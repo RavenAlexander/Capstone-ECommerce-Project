@@ -6,13 +6,26 @@
     align-items: center;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+.dancing-script-logo {
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
 .nav-logo {
     display: flex;
     align-items: center;
     gap: 10px;
+    font-family: "Dancing Script", cursive;
 }
 
 .nav-logo p {
+    font-family: cursive;
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
     color: #171717;
     font-size: 38px;
     font-weight: 600;
