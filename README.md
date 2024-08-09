@@ -4,6 +4,8 @@
 
 Live (deployed) website here: https://e-commerce-react-website.onrender.com
 
+* Note: For demonstration purposes, the deployed website uses static images that have a different source than the images you will find if you download the repository and run it locally. Still, the images are exactly the same so the aesthetics don't change much between repo and the live website. 
+
 StyleStation is a clothing shop that sells products for men, women and kids. I used the MERN (MongoDB, Express, React, NodeJS) Stack to create this full-stack web application. It includes user authentication, and the ability to save your cart contents within your personal account. That way, you can pick up where you left off in your browsing!
 
 StyleStation is a fully-responsive application that can be viewed across the largest to smallest screen sizes. I used CSS and media queries to make the website responsive and accessible. React is used to render the page contents. 
