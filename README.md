@@ -96,7 +96,9 @@ In order to run both the frontend and backend successfully, these dependencies m
 I used Vite to create the React environment. To use Vite you must run the command:
 `$ npm create vite@latest`
 
-and then `$ npm run dev` in your chosen directory.
+and then `$ npm run dev` in your chosen directory. (frontend/e-commerce or admin/admin)
+
+To see the database images onscreen you'll need to make sure you have the backend server running at the same time as Vite. To do that run `$ node server.js` from the backend folder in a separate terminal.
 
 ## Challenges Addressed
 

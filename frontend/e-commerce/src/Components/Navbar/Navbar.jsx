@@ -1,6 +1,6 @@
 import React, { useContext, useState, useRef } from 'react'
 import './Navbar.css'
-import logo from '../assets/logo.png'
+import logo from '../assets/shopping-bag.png'
 import cart_icon from '../assets/cart_icon.png'
 import {Link} from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
@@ -20,9 +20,9 @@ const dropdown_toggle = (e) => {
 
   return (
     <div className='navbar'>
-      <div className="nav-logo">
-        <Link to='/'><img src={logo} alt="" /></Link>
-        <p className='dancing-script-logo'>StyleStation</p>
+      <div className="nav-logo" onClick={()=>{setMenu("home")}}>
+        <Link to='/'><img src={logo} alt="" />
+        <p>StyleStation</p></Link>{menu==="home"?<hr />:<></>}
       </div>
       <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dropdown} alt="" />
       <ul ref={menuRef} className="nav-menu">

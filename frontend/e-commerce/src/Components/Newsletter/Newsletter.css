@@ -7,8 +7,8 @@
     justify-content: center;
     margin: auto;
     padding: 0px 140px;
-    margin-bottom: 150px;
-    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
+    margin-bottom: 100px;
+    background: linear-gradient(180deg, #fde3e4 0%, #e1ffea22 60%);
     gap: 30px;
 }
 
@@ -16,6 +16,7 @@
     color: #454545;
     font-size: 55px;
     font-weight: 600;
+    
   
   
 }
@@ -90,6 +91,7 @@
     }
     .newsletter h1 {
         font-size: 30px;
+        margin-top: -70px;
     }
     .newsletter p {
         font-size: 14px;
@@ -103,7 +105,7 @@
         font-size: 14px;
     }
     .newsletter div button {
-        width: 120px;
+        width: 160px;
         height: 50px;
         font-size: 14px;
     }
@@ -130,7 +132,7 @@
         font-size: 13px;
     }
     .newsletter div button {
-        width: 100px;
+        width: 160px;
         height: 40px;
         font-size: 13px;
     }
@@ -140,11 +142,13 @@
     .newsletter {
         height: 25vh;
         width: 100%;
-        padding: 0;
+        padding: 0px;
         gap: 15px;
     }
     .newsletter h1 {
         font-size: 16px;
+        padding: 5px;
+        margin-top: 2px;
     }
     .newsletter p {
         font-size: 13px;

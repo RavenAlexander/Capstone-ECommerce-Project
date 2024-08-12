@@ -4,31 +4,33 @@
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
     align-items: center;
+    background-color: #fde3e4;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-
-.dancing-script-logo {
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-  }
 
 .nav-logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-family: "Dancing Script", cursive;
+}
+
+.nav-logo a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo img {
+    width: 60px;
 }
 
 .nav-logo p {
-    font-family: cursive;
-    font-display: swap;
-    src: url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-    color: #171717;
+    color: #383838;
     font-size: 38px;
-    font-weight: 600;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .nav-menu {
@@ -50,6 +52,10 @@
     cursor: pointer;
 }
 
+.nav-menu li a {
+    color: #30495d;
+}
+
 .nav-menu hr {
     border: none;
     width: 80%;
@@ -66,14 +72,14 @@
 
 .nav-login-cart button {
     width: 157px;
-    height: 58px;
+    height: 48px;
     outline: none;
     border: 1px solid #7a7a7a;
     border-radius: 75px;
-    color: #515151;
+    color: white;
     font-size: 20px;
-    font-weight: 500;
-    background: white;
+    font-weight: 700;
+    background: #30495d;
     cursor: pointer;
    margin-left: 10px;
 }
@@ -128,12 +134,14 @@
     }
     .nav-logo p{
         margin: 0;
+        font-size: 25px;
     }
     .nav-dropdown{
         display: block;
         width: 20px;
         rotate: -90deg;
         transition: 0.5s;
+        margin-left: -30px;
     }
     .nav-menu {
         display: none;
@@ -157,6 +165,18 @@
     .nav-dropdown.open {
         display: none;
     }
+
+    .nav-login-cart {
+        gap: 20px;
+    }
+
+    .nav-login-cart button {
+        margin-left: -35px;
+    }
+
+    .nav-cart-count {
+        margin-left: -30px;
+    }
 }
 
 @media(max-width: 500px) {
@@ -165,14 +185,39 @@
         gap: 0;
     }
     .nav-logo {
-        transform: scale(0.8);
+        transform: scale(0.5);
+        margin-left: -50px;
+    }
+
+    .nav-logo p {
+        font-size: 30px;
+    }
+
+    .nav-dropdown {
+        margin-left: -50px;
+    }
+
+    .nav-dropdown.open {
+        display: none;
     }
 
     .nav-menu {
         height: 70px;
-        top: 50px;
+        margin-left: -95px;
     }
    .nav-login-cart {
     transform: scale(0.8);
+    gap: 20px;
+   }
+   .nav-login-cart img {
+    margin-left: -15px;
+   }
+
+   .nav-login-cart button {
+    gap: 0px;
+}
+   
+   .nav-cart-count {
+    margin-left: -20px;
    }
 }
