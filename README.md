@@ -11,7 +11,6 @@ StyleStation is a fully-responsive application that can be viewed across the lar
 
 ![](./presentation/ssdual2.png)
 ![](./presentation/ssdual3.png)
-![](./presentation/ssdual4.png)
 
 ## Technical Goals
 
@@ -24,7 +23,6 @@ The primary goal of this project was to enhance understanding and proficiency in
 5. **DRY Coding Practices**: I wanted to adhere to DRY coding principles and prevent redundancy.
 
 ![](./presentation/stylestation4.png)
-![](./presentation/stylestation5.png)
 ![](./presentation/stylestation6.png)
 
 | Product Display |  |
@@ -62,17 +60,17 @@ The primary goal of this project was to enhance understanding and proficiency in
 ## Database Structure
 This an example of how the database products are structured.
 ![](./presentation/stylestation9.png)
-![](./presentation/stylestation10.png)
 
-## Wireframes examples
-![](./presentation/Screen%20Shot%202024-08-11%20at%208.12.13%20PM.png)
-![](./presentation/Screen%20Shot%202024-08-11%20at%208.12.42%20PM.png)
+## Wireframes Examples
+| Shop Page | Cart Page |
+| ------------- | ------------- |
+| ![](./presentation/Screen%20Shot%202024-08-11%20at%208.12.13%20PM.png) | ![](./presentation/Screen%20Shot%202024-08-11%20at%208.12.42%20PM.png) |
 
-### Agile methodology
+### Agile Methodology
 
 My project utilizes agile methodology to ensure iterative development, continuous feedback, and rapid adaptation to changes. Duration of project development: two weeks.
 
-### Technologies used:
+### Technologies Used:
 - HTML
 - CSS
 - JavaScript
