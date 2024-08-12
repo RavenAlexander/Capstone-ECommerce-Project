@@ -27,9 +27,9 @@ The primary goal of this project was to enhance understanding and proficiency in
 ![](./presentation/stylestation5.png)
 ![](./presentation/stylestation6.png)
 
-| Product Display | Add to Cart |
+| Product Display |  |
 | ------------- | ------------- |
-| <img src="./presentation/mobiless3.png" width="50%" height="50%"> | <img src="./presentation/mobiles4.png" width="50%" height="50%"> |
+| <img src="./presentation/mobiless3.png" width="75%" height="75%"> | <img src="./presentation/mobiles4.png" width="75%" height="75%"> |
 
 
 ## Features
